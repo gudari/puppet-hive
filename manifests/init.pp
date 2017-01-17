@@ -35,7 +35,44 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class hive {
+class hive (
 
+  $version        = $hive::params::version,
+  $install_dir    = $hive::params::install_dir,
+  $config_dir     = "${install_dir}/etc/hadoop",
+  $mirror_url     = $hive::params::mirror_url,
+  $download_dir   = $hive::params::download_dir,
+  $log_dir        = $hive::params::log_dir,
+  $pid_dir        = $hive::params::pid_dir,
+
+  $package_name   = $hive::params::package_name,
+  $package_ensure = $hive::params::package_ensure,
+
+  $install_java   = $hive::params::install_java,
+  $java_version   = $hive::params::java_version,
+
+
+
+
+
+
+
+
+) inherits hive::params
+{
+  $basefilename = "apache-hive-${version}-bin.tar.gz"
+  $package_url  = "${mirror_url}/hive/hive-${version}/${basefilename}"
+  $extract_dir  = "/opt/hadoop-${version}"
+
+  if $install_java {
+    java::oracle { 'jdk8':
+      ensure  => 'present',
+      version => $java_version,
+      java_se => 'jdk',
+      before  =>  Archive[ "${download_dir}/${basefilename}" ]
+    }
+  }
+
+  class { '::hive::install': }
 
 }
