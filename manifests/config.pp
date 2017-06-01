@@ -28,7 +28,7 @@ class hive::config {
     ensure  => file,
     owner   => $hive::hive_user,
     group   => $hive::hive_group,
-    content => file('hive/hive-default.xml.template'),
+    content => file('hive/config/hive-default.xml.template'),
     require => File[ $hive::config_dir ],
   }
 
