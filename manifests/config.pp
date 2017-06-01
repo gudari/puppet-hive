@@ -36,7 +36,7 @@ class hive::config {
     ensure  => file,
     owner   => $hive::hive_user,
     group   => $hive::hive_group,
-    content => file('hive/config/hive-exec-log4j.properties.tempalte'),
+    content => file('hive/config/hive-exec-log4j.properties.template'),
     require => File[ $hive::config_dir ],
   }
 
