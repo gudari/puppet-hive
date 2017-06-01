@@ -85,6 +85,7 @@ class hive (
   
   anchor { '::hive::start': } ->
   class { '::hive::install': } ->
+  class { '::hive::config': } ->
   anchor { '::hive::end': }
 
 }
