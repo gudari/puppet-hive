@@ -51,13 +51,6 @@ class hive (
   $install_java   = $hive::params::install_java,
   $java_version   = $hive::params::java_version,
 
-
-
-
-
-
-
-
 ) inherits hive::params
 {
   $basefilename = "apache-hive-${version}-bin.tar.gz"
