@@ -18,4 +18,6 @@ class hive::params {
   $hive_group     = 'hive'
   $hive_gid       = undef
 
+  $default_hive_site = {}
+
 }
