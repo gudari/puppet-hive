@@ -65,6 +65,7 @@ class hive (
   $database_user     = 'hive',
   $database_password = 'hivepassword',
   $metastore_host    = $::fqdn,
+  $metastore_port    = '9083',
 
 ) inherits hive::params
 {
@@ -96,7 +97,7 @@ class hive (
   if $metastore_host {
     $daemon_metastore = true
     $metastore_hive_site = {
-      'hive.metastore.uris' => "thrift://${metastore_host}:9083",
+      'hive.metastore.uris' => "thrift://${metastore_host}:${metastore_port}",
     }
   }
 
