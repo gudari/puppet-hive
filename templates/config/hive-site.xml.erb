@@ -17,7 +17,7 @@
 -->
 <configuration>
 
-<% config = scope.lookupvar('hadoop::hive_site') -%>
+<% config = scope.lookupvar('hive::hive_site') -%>
 <% config.each do |p,v| -%>
   <property>
     <name><%= p -%></name>
