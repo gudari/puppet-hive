@@ -48,6 +48,14 @@ class hive::config {
     require => File[ $hive::config_dir ],
   }
 
+  file { "${hive::config_dir}/hive-site.xml":
+    ensure  => file,
+    owner   => $hive::hive_user,
+    group   => $hive::hive_group,
+    content => template('hive/config/hive-site.xml.erb'),
+    require => File[ $hive::config_dir ],
+  }
+
 }
 
 
