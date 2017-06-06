@@ -63,7 +63,7 @@ class hive (
   $database_type     = 'mysql',
   $database_host     = $::fqdn,
   $database_port     = 3306,
-  $datebase_name     = 'metastore',
+  $database_name     = 'metastore',
   $database_user     = 'hive',
   $database_password = 'hivepassword',
   $metastore_host    = $::fqdn,
